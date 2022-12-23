@@ -12,7 +12,7 @@ def multi_list(lst):
         l = len(lst) // 2
     for i in range(l):
         final_lst = lst[i] * lst[len(lst) - i - 1]
-        print(final_lst, end = ' ')
+        print(final_lst, end=' ')
 
 lst1 = [2, 3, 4, 5, 6]
 multi_list(lst1)
