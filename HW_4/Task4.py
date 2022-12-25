@@ -6,7 +6,7 @@
 from random import *
 
 
-file = open("result.txt", "w")
+file = open("zadanie4.txt", "w")
 k = int(input("Введите число:   "))
 lst = [randint(0, 100) for i in range(k + 1)]
 print(lst)
