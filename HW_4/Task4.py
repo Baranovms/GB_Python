@@ -18,5 +18,5 @@ for i in range(k + 1):
         x += str(lst[i])
 print(f'{x} = 0')
 
-file.write(f'{x} = 0  \n')
+file.write(f'{x} \n')
 file.close()
