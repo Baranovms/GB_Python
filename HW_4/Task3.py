@@ -32,3 +32,9 @@ print(Random_list(N))
 lst = sorted(lst)
 print(Search_Double(lst))
 
+# a = [1,1,1,2,3,4,5,5,5]
+# res_list= []
+# for i in a:
+#     if a.count(i) == 1:
+#         res_list.append(i)
+# print(res_list)
