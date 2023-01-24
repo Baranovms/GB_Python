@@ -1,20 +1,19 @@
 from import_base import import_base
 from export_base import export_base
 from print_data import print_data
-# from search_base import search_base
+
 
 def greeting():
     print("Добро пожаловать в телефонный справочник!")
 
 def input_data():
     id = input('Введите ID: ')
-    last_name = input("Введите фамилию: ")
     first_name = input("Введите имя: ")
-    middle_name = input("Введите отчество: ")
-    brith_name = input("Введите дату рождения: ")
+    last_name = input("Введите фамилию: ")
+    surname = input("Введите отчество: ")
     phone_number = input("Введите номер контакта: ")
     note = input("Введите комментарий: ")
-    return [id, last_name, first_name, middle_name, brith_name, phone_number, note]
+    return [id, last_name, first_name, surname, phone_number, note]
 
 def choice_sep():
     sep = input("Введите разделитель: ")

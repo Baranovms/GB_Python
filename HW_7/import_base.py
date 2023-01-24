@@ -1,6 +1,6 @@
 # модуль импорта данных
 
-def import_data(data, sep=None):
+def import_base(data, sep=None):
     with open('base.txt', 'a+') as file:
         if sep == None:
             for i in data:

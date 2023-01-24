@@ -1,7 +1,7 @@
 # модуль экспорта данных
 
-def export_data():
-    with open('phone.csv', 'r') as file:
+def export_base():
+    with open('phone.txt', 'r') as file:
         data = []
         t = []
         for line in file:

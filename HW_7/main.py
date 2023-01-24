@@ -1,3 +1,5 @@
-import controller as c
+from controller import *
 
-c.menu()
+greeting()
+
+choice_todo()
