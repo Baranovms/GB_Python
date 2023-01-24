@@ -1,7 +1,7 @@
-from import_data import import_data
-from export_data import export_data
+from import_base import import_base
+from export_base import export_base
 from print_data import print_data
-# from search_data import search_data
+# from search_base import search_base
 
 def greeting():
     print("Добро пожаловать в телефонный справочник!")
@@ -25,22 +25,11 @@ def choice_sep():
 def choice_todo():
     print("Доступные операции с телефонной книгой:\n\
     1 - импорт;\n\
-    2 - экспорт;\n\
-    3 - поиск контакта.")
+    2 - экспорт.")
     ch = input("Введите цифру: ")
     if ch == '1':
         sep = choice_sep()
-        import_data(input_data(), sep)
-    elif ch == '2':
-        data = export_data()
-        print_data(data)
+        import_base(input_data(), sep)
     else:
-        word = input("Введите данные для поиска: ")
-        data = export_data()
-        item = search_data(word, data)
-        if item != None:
-            print("ID".center(5), "Фамилия".center(20), "Имя".center(20), "Отчество".center(20), "Дата рождения".center(20), "Телефон".center(15), "Комментарий".center(30))
-            print("-"*140)
-            print(item[0].center(5), item[1].center(20), item[2].center(20), item[3].center(20), item[4].center(20), item[5].center(15), item[6].center(30))
-        else:
-            print("Данные не обнаружены")
+        data = export_base()
+        print_data(data)
