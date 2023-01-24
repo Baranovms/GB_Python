@@ -1,7 +1,7 @@
 # модуль экспорта данных
 
 def export_base():
-    with open('phone.txt', 'r') as file:
+    with open('phone_book.txt', 'r', encoding='UTF-8') as file:
         data = []
         t = []
         for line in file:
