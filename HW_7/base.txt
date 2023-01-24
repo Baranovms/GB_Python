@@ -1,4 +1,3 @@
-ID;First_Name;Last_Name;Surname;PhoneNumber; Note
 1;Vasilisa;Duma;+79495792603
 2;Viktor;Galich;+79492729741
 3;Igor;Moroz;+79517273634

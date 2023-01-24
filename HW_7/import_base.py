@@ -9,4 +9,3 @@ def import_base(data, sep=None):
         else:
             file.write(sep.join(data))
             file.write(f"\n")
-
