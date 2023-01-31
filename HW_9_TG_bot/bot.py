@@ -78,7 +78,9 @@ def restart():
 
 def bot_input(message):
     global bot_sweets, flag
-    bot_sweets = randint(1, 28)
+    bot_sweets = randint(0, 28)
+    if bot_sweets == 0:
+        bot_sweets = 1
     bot.send_message(message.chat.id, f'Бот взял конфет: {bot_sweets}')
     get_bot_count(message)
 
