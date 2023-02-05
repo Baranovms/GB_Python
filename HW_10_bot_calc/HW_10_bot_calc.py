@@ -63,13 +63,15 @@ def get_complex(message):
 def input_comlex1(message):
     global a
     bot.send_message(message.chat.id, "Введите 1-е комплексое число ")
-    a = complex(message.text)
-    input_comlex2(message)
+    a = message.text
+    a = complex(''.join(a.split()))
+    bot.register_next_step_handler(message, input_comlex2)
 
 def input_comlex2(message):
     global b
     bot.send_message(message.chat.id, "Введите 2-е комплексное число ")
-    b = complex(message.text)
+    b = message.text
+    b = complex(''.join(b.split()))
     bot.register_next_step_handler(message, complex_calc)
 
 def int_calc(message):
@@ -101,7 +103,6 @@ def int_calc(message):
             bot.send_message(message.chat.id, (f'{a} % {b} = {res}'))
         else:
             bot.send_message(message.chat.id, (f'Деление на ноль. Попробуйте еще раз.'))
-
 
 
 def complex_calc(message):
