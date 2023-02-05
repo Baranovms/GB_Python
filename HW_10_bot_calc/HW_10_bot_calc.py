@@ -6,8 +6,8 @@ bot = telebot.TeleBot("5888524320:AAF2-z58ndxfwxzBC87f8Alrw-nAMCtAyKo")
 a = 0
 b = 0
 res = 0
-sign = ''
-
+sign = 0
+complex_sign = 0
 
 @bot.message_handler(commands=['start'])  # вызов функции по команде в списке
 def start(message):
@@ -26,7 +26,8 @@ def controller(message):
         bot.send_message(message.chat.id, "Введите знак для действительных чисел (+,-,/,*,//,%) ")
         bot.register_next_step_handler(message, get_sign)
     if message.text == 'Калькулятор комплексных чисел':
-        input_comlex1(message)
+        bot.send_message(message.chat.id, "Введите знак для действительных чисел (+,-,/,*) ")
+        bot.register_next_step_handler(message, get_complex)
 
 def get_sign(message):
     global sign
@@ -43,7 +44,6 @@ def input_calc1(message):
         return
     bot.register_next_step_handler(message, input_calc2)
 
-
 def input_calc2(message):
     global b
     bot.send_message(message.chat.id, "Введите 2-е число ")
@@ -53,6 +53,12 @@ def input_calc2(message):
         bot.register_next_step_handler(message, input_calc2)
         return
     bot.register_next_step_handler(message, int_calc)
+
+
+def get_complex(message):
+    global complex_sign
+    complex_sign = message.text
+    input_comlex1(message)
 
 def input_comlex1(message):
     global a
@@ -64,7 +70,7 @@ def input_comlex2(message):
     global b
     bot.send_message(message.chat.id, "Введите 2-е комплексное число ")
     b = complex(message.text)
-    complex_calc(message)
+    bot.register_next_step_handler(message, complex_calc)
 
 def int_calc(message):
     global res, sign
@@ -99,6 +105,25 @@ def int_calc(message):
 
 
 def complex_calc(message):
-    pass
+    global res, complex_sign
+    if complex_sign == "+":
+        res = a + b
+        bot.send_message(message.chat.id, (f'{a} + {b} = {res}'))
+    if complex_sign == "-":
+        res = a - b
+        bot.send_message(message.chat.id, (f'{a} - {b} = {res}'))
+    if complex_sign == "*":
+        res = a * b
+        bot.send_message(message.chat.id, (f'{a} * {b} = {res}'))
+    if complex_sign == "/":
+        if b != 0:
+            res = a / b
+            bot.send_message(message.chat.id, (f'{a}/ {b} = {res}'))
+        else:
+            bot.send_message(message.chat.id, (f'Деление на ноль. Попробуйте еще раз.'))
+    if complex_sign == "//":
+        bot.send_message(message.chat.id, (f'Неверный выбор функции. Попробуйте еще раз'))
+    if complex_sign == "%":
+        bot.send_message(message.chat.id, (f'Неверный выбор функции. Попробуйте еще раз'))
 
 bot.infinity_polling()
